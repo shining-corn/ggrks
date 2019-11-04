@@ -147,7 +147,6 @@
             constructor() {
                 this.tag = document.getElementById('cursor');
                 this.live = true;
-                this.maxClock = 200;
             }
 
             move() {
@@ -196,7 +195,7 @@
                 if (this.live) {
                     this.clock++;
                     this.tag.focus();
-                    if (this.clock % 50 === 0) {
+                    if (this.clock % 25 === 0) {
                         const query = this.query.substr(0, this.tag.value.length + 1);
                         this.tag.value = query;
                     }
@@ -229,6 +228,7 @@
             const cursor = new Cursor();
             const searchInput = new SearchInput(query);
 
+            cursor.setMaxClock(100);
             cursor.setStartPosition();
             const searchInputRect = document.getElementById('search-icon').getBoundingClientRect();
             cursor.setGoalPosition(searchInputRect.top + searchInputRect.height / 2, searchInputRect.left + searchInputRect.width / 2);
@@ -251,7 +251,7 @@
                     cursor.setStartPosition();
                     const submitRect = document.getElementById('search-button').getBoundingClientRect();
                     cursor.setGoalPosition(submitRect.top + submitRect.height / 2, submitRect.left + submitRect.width / 2);
-                    cursor.setMaxClock(100);
+                    cursor.setMaxClock(50);
                     cursor.live = true;
                     step = 3;
                 }
@@ -267,7 +267,7 @@
                     tagLink.click();
                     step = 5;
                 }
-            }, 9);
+            }, 20);
         }
 
         function initGenerateButton() {
