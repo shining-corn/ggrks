@@ -69,13 +69,19 @@
 
         .search-input {
             float: right;
-            width: 33em;
+            width: 90%;
             height: 4em;
             border: none;
             outline: none;
             line-height: 3em;
             margin: 0;
             padding: 0;
+        }
+
+        @media screen and (max-width: 450px) {
+            .search-input {
+                height: 2em;
+            }
         }
 
         .button {
