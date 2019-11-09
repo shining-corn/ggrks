@@ -323,6 +323,12 @@
             tagInput.addEventListener('change', onChangeFunc);
             tagInput.addEventListener('input', onChangeFunc);
             tagInput.addEventListener('keyup', onChangeFunc);
+
+            tagInput.addEventListener('keydown', (event) => {
+                if ((event.keyCode == 13) && (event.target.value.length)) {
+                    document.getElementById('generate-button').click();
+                }
+            });
         }
 
         (() => {
