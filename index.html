@@ -205,13 +205,20 @@
                 this.tag = document.getElementById('search-input');
                 this.live = true;
                 this.query = decodeURI(query);
+                this.textSpeed = 100 / this.query.length;
+                if (this.textSpeed > 25) {
+                    this.textSpeed = 25;
+                }
+                else if (this.textSpeed < 2) {
+                    this.textSpeed = 2;
+                }
             }
 
             move() {
                 if (this.live) {
                     this.clock++;
                     this.tag.focus();
-                    if (this.clock % 25 === 0) {
+                    if (this.clock % this.textSpeed === 0) {
                         const query = this.query.substr(0, this.tag.value.length + 1);
                         this.tag.value = query;
                     }
