@@ -205,7 +205,7 @@
                 this.tag = document.getElementById('search-input');
                 this.live = true;
                 this.query = decodeURI(query);
-                this.textSpeed = 100 / this.query.length;
+                this.textSpeed = Math.floor(100 / this.query.length);
                 if (this.textSpeed > 25) {
                     this.textSpeed = 25;
                 }
